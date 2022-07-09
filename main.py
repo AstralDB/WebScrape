@@ -35,15 +35,13 @@ except:
 for item in results:
     webhook = textwrap.shorten(item, width=120, fix_sentence_endings=True, break_long_words=True, break_on_hyphens=False, placeholder='')
     try:
+        get = requests.get(webhook).json()['id']
+    except:
+        print('Invalid')
+        print('')
+    else:
         response = requests.get(webhook).json()
         print('Webhook_URL:'+webhook)
         print('Token:', response['token'])
         print('Name:'+ response['name'])
         print('')
-    except:
-        print('Invalid')
-        print('')
-
-
-
-
