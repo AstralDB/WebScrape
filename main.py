@@ -1,4 +1,4 @@
-import requests,re,textwrap
+import requests,re,textwrap, github
 from github import Github
 
 
@@ -26,7 +26,7 @@ try:
         data = re.findall(pattern, get)
         results.extend(data)
 
-except:
+except github.RateLimitExceededException:
     print('Rate limited!')
 
 
