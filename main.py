@@ -27,7 +27,8 @@ try:
         results.extend(data)
 
 except github.RateLimitExceededException:
-    print('Rate limited!')
+    print('[!] Rate limited!')
+    print('')
 
 
 
