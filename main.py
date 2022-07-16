@@ -21,7 +21,7 @@ search = client.search_code('in:file discord.com/api/webhooks/', sort='indexed',
 try:
 
     for file in search:
-        get = requests.get(f'{file.download_url}').text
+        get = requests.get(file.download_url).text
         pattern = re.compile(r'https://discord.com/api/webhooks/\d{18}/[^\n]*')
         data = re.findall(pattern, get)
         results.extend(data)
